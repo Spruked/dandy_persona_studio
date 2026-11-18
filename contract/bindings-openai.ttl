@@ -1,0 +1,6 @@
+@prefix api: <https://dandyshow.example/api/> .
+@prefix pic: <https://dandyshow.example/contract/> .
+api:OpenAIChatBinding a pic:DeliveryBinding ;
+  api:systemPrompt pic:IdentityImmutability, pic:NoCanonicalJokeLeak ;
+  api:toolSchema pic:FactualGrounding, pic:SourceBoundary ;
+  api:responseFormat pic:SymmetricCapability, pic:NoInterviewScript .

@@ -1,4 +1,4 @@
-const allowedSpeakers = new Set(['pd:PhilDandy','jd:JimDandy']);
+const allowedSpeakers = new Set(['pd:PhillipDandridge','jd:JamesArthurDandridge']);
 const capabilityWords = { initiate:['what if','i think','let me tell','you know'], challenge:['but','actually','except','that is not'], joke:['funny','joke','grounds','record'], story:['once','remember','back when','story'] };
 
 export function normalizeDialogue(raw) { const turns = Array.isArray(raw?.turns) ? raw.turns : []; return turns.map((t,i)=>({speakerId:String(t.speakerId||''), turnIndex:i+1, chapterId:t.chapterId||'default', text:String(t.text||'').trim(), sourceReferences:Array.isArray(t.sourceReferences)?t.sourceReferences:[], verificationStatus:'pic:Unverified'})); }

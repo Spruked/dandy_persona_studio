@@ -1,0 +1,5 @@
+@prefix api: <https://dandyshow.example/api/> .
+@prefix pic: <https://dandyshow.example/contract/> .
+api:LocalVLLMBinding a pic:DeliveryBinding ;
+  api:systemPrompt pic:IdentityImmutability, pic:NoCanonicalJokeLeak ;
+  api:postHocCheck pic:FactualGrounding, pic:SourceBoundary .

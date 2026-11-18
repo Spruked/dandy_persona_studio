@@ -26,6 +26,8 @@ The `src/` module is provider-neutral and intentionally stops at the character-c
 
 `verifyDialogue()` independently normalizes and checks returned turns for allowed identity, source-boundary violations, canonical joke leaks, and one-speaker interview behavior. It returns `pic:Passed` or `pic:Failed` and never owns script writing or audio generation.
 
+The `canonical/` directory is copied from the local DANDY_SHOW_V3 persona source and is now the runtime authority. The package pins the bible-locked SKGs at `bible-v1.2`; missing/open fields stay explicit and are never fabricated. Contract bindings for OpenAI, Nemotron, and local vLLM are in `contract/`, with conformance fixtures in `conformance/fixtures/`.
+
 Run the tests with Node:
 
 ```text

@@ -1,0 +1,14 @@
+@prefix pic: <https://dandyshow.example/contract/> .
+@prefix pd: <https://dandyshow.example/phil/> .
+@prefix jd: <https://dandyshow.example/jim/> .
+@prefix rel: <https://dandyshow.example/relationship/> .
+@prefix ep: <https://dandyshow.example/episode/> .
+
+pic:PersonaInvocationContract a pic:Contract ;
+  pic:contractVersion "0.2.0" ;
+  pic:bibleSource "Phil & Jim Dandridge - Canonical Character Bible v1.2" ;
+  pic:pins pd:PhillipDandridge "phil-skg@v1.2-bible" ;
+  pic:pins jd:JamesArthurDandridge "jim-skg@v1.2-bible" ;
+  pic:pins rel:SharedRelationshipSKG "rel-skg@v1.2-bible" ;
+  pic:pins ep:EpisodeSKG "episode@v0.1.0" ;
+  pic:immutabilityRule "Identity frozen at bible-v1.2; episodic append-only; no write-back" .

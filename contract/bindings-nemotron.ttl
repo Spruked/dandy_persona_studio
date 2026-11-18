@@ -1,0 +1,6 @@
+@prefix api: <https://dandyshow.example/api/> .
+@prefix pic: <https://dandyshow.example/contract/> .
+api:NemotronBinding a pic:DeliveryBinding ;
+  api:systemPrompt pic:IdentityImmutability, pic:NoCanonicalJokeLeak ;
+  api:toolSchema pic:FactualGrounding, pic:SourceBoundary ;
+  api:guidedDecoding pic:SymmetricCapability .
