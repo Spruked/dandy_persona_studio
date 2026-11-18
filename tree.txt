@@ -1,0 +1,83 @@
+DANDY PERSONA STUDIO — CODE REVIEW
+Reviewed: 2026-11-18
+
+REPOSITORY TREE
+.
+├── app.js
+├── index.html
+├── package.json
+├── README.md
+├── styles.css
+├── src
+│   ├── index.js
+│   ├── invocation.js
+│   ├── personas.js
+│   └── verify.js
+└── tests
+    └── runtime.test.js
+
+TEST STATUS
+- `npm test` passes.
+- Existing tests cover request construction, a valid two-speaker dialogue, source-boundary failure, and canonical-joke leakage.
+
+FINDINGS
+
+1. MEDIUM — Invalid speaker keys are silently ignored.
+   Location: src/invocation.js:3-5
+   `retrievePersonaContext()` filters unknown speaker keys out. A typo such as
+   `speakers: ['phil', 'jmi']` produces a request with only Phil and no error,
+   which can violate the intended symmetric two-voice contract. Validate keys
+   and either throw or return an explicit failure.
+
+2. MEDIUM — Symmetric capability is stated but not verified.
+   Locations: src/verify.js:2,6; README.md:27
+   The verifier records capability keywords, but never checks that both speakers
+   can initiate, challenge, joke, or tell stories. The UI and invocation brief
+   claim symmetric capability / seven checks, so the implementation and contract
+   are currently out of sync. Add explicit capability assertions or revise the
+   claims and tests.
+
+3. MEDIUM — Verification status is global rather than per-turn.
+   Location: src/verify.js:6
+   If one turn fails, every returned turn receives `pic:Failed`, including turns
+   with no individual violation. Consumers cannot distinguish a bad turn from a
+   clean turn in an otherwise failed response. Track turn-level failures and
+   assign status per turn, while retaining the overall verdict.
+
+4. LOW — Empty or malformed turn values are normalized too permissively.
+   Location: src/verify.js:4
+   Missing `text` becomes an empty string and non-array `sourceReferences` become
+   `[]`, yet the dialogue can still pass if another speaker has valid text. Add
+   validation for required fields and reject empty turns explicitly.
+
+5. LOW — Active navigation state is not initialized on page load.
+   Location: app.js:3
+   The active section is updated only after scrolling. Loading the page at a
+   non-default hash can leave Overview highlighted until the first scroll event.
+   Call the section-sync routine once after registering it and handle hash/resize
+   changes if needed.
+
+6. LOW — The advertised local page depends on a remote font stylesheet.
+   Location: styles.css:1
+   Google Fonts are imported from the network, so the visual result is not fully
+   offline/local despite the README calling this a local reference implementation.
+   Either document the dependency or bundle/fallback to local fonts.
+
+7. LOW — Browser interaction has no automated coverage.
+   Locations: app.js:2-3; tests/
+   Clipboard fallback behavior, toast display, responsive navigation, and
+   scroll tracking are untested. A small browser smoke test would catch DOM,
+   permission, and browser-compatibility regressions.
+
+RECOMMENDED ORDER
+1. Enforce speaker-key validation and required turn fields.
+2. Implement or remove the promised symmetric-capability checks.
+3. Make verification status turn-specific.
+4. Add browser smoke coverage and initialize navigation state.
+5. Decide whether remote fonts are acceptable for the local/offline claim.
+
+OVERALL ASSESSMENT
+The code is compact, readable, and the current Node test suite passes. The main
+risk is contract drift: the UI/README promise stronger verification and symmetry
+than `verifyDialogue()` currently enforces. The runtime is suitable as a small
+reference implementation after those validation boundaries are tightened.

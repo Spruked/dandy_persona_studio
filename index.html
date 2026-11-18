@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dandy Persona Studio</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#overview"><span class="brand-mark">D</span><span>Dandy Persona Studio</span></a>
+      <nav class="topnav" aria-label="Primary navigation">
+        <a class="active" href="#overview">Overview</a><a href="#personas">Personas</a><a href="#relationship">Relationship</a><a href="#contract">Contract</a>
+      </nav>
+      <div class="status"><span class="status-dot"></span>Local workspace</div>
+    </header>
+
+    <main>
+      <section id="overview" class="hero section-pad">
+        <div class="hero-copy">
+          <p class="eyebrow">PERSONA INVOCATION / V0.3</p>
+          <h1>Two voices.<br /><em>One living conversation.</em></h1>
+          <p class="lede">A semantic knowledge graph workspace for building dialogue that keeps Phil and Jim distinct, grounded, and genuinely conversational.</p>
+          <div class="hero-actions"><a class="button primary" href="#personas">Explore personas <span>↗</span></a><a class="text-link" href="#contract">View contract <span>→</span></a></div>
+        </div>
+        <div class="hero-art" aria-label="Abstract relationship graph illustration">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+          <div class="node node-phil"><span>PD</span><small>Phil</small></div><div class="node node-jim"><span>JD</span><small>Jim</small></div><div class="node node-shared"><span>↗</span><small>Shared</small></div>
+          <div class="connection c-one"></div><div class="connection c-two"></div><div class="connection c-three"></div>
+        </div>
+      </section>
+
+      <section class="signal-strip"><div><strong>4</strong><span>behavioral layers</span></div><div><strong>2</strong><span>symmetric voices</span></div><div><strong>7</strong><span>verification checks</span></div><div><strong>0</strong><span>rigid roles</span></div></section>
+
+      <section id="personas" class="section-pad personas-section">
+        <div class="section-heading"><div><p class="eyebrow">THE CAST</p><h2>Meet the brothers</h2></div><p class="section-note">Traits modulate the dialogue. They never determine it.</p></div>
+        <div class="persona-grid">
+          <article class="persona-card phil"><div class="card-top"><span class="avatar">PD</span><span class="label">PERSONA / 01</span><span class="arrow">↗</span></div><h3>Phil Dandy</h3><p class="role">Curious co-host · Joplin, Missouri</p><p class="description">Phil follows the interesting thread wherever it goes—then turns it into a colorful story with an unexpected comparison.</p><div class="trait-list"><span>Curiosity</span><span>Cross-domain reasoning</span><span>Playful speculation</span><span>Colorful storytelling</span></div><div class="voice-line"><span>Voice performance</span><strong>Measured · rising into tangents</strong></div></article>
+          <article class="persona-card jim"><div class="card-top"><span class="avatar">JD</span><span class="label">PERSONA / 02</span><span class="arrow">↗</span></div><h3>Jim Dandy</h3><p class="role">Grounded co-host · Joplin, Missouri</p><p class="description">Jim notices what is actually in front of him, tests the idea against lived experience, and lets the punchline land quietly.</p><div class="trait-list"><span>Practical observance</span><span>Real-world testing</span><span>Dry wit</span><span>Grounding correction</span></div><div class="voice-line"><span>Voice performance</span><strong>Even · unhurried · deadpan</strong></div></article>
+        </div>
+      </section>
+
+      <section id="relationship" class="relationship section-pad"><div class="section-heading"><div><p class="eyebrow">THE GLUE</p><h2>How the conversation moves</h2></div><p class="section-note">A relationship layer keeps the exchange dynamic, not scripted.</p></div><div class="relationship-layout"><div class="conversation-card"><div class="conversation-head"><span class="live-dot"></span>Conversation pattern <span class="pill">SYMMETRIC</span></div><div class="chat-row phil-row"><span class="mini-avatar phil-bg">PD</span><div><b>Phil</b><p>“What if the old tractor was less machine and more breakfast experiment?”</p></div></div><div class="chat-row jim-row"><span class="mini-avatar jim-bg">JD</span><div><b>Jim</b><p>“It was mostly machine. The breakfast part was the problem.”</p></div></div><div class="chat-row phil-row"><span class="mini-avatar phil-bg">PD</span><div><b>Phil</b><p>“So you're saying the coffee grounds needed a little more horsepower.”</p></div></div><div class="chat-row jim-row"><span class="mini-avatar jim-bg">JD</span><div><b>Jim</b><p>“I’m saying the belt still has grounds for complaint.”</p></div></div></div><div class="dynamic-list"><div class="dynamic-item"><span>01</span><div><b>Phil opens a thread</b><p>Speculation creates a new path into the subject.</p></div></div><div class="dynamic-item"><span>02</span><div><b>Jim grounds the bit</b><p>Concrete details keep the story tethered to life.</p></div></div><div class="dynamic-item"><span>03</span><div><b>Either can lead</b><p>Both voices may initiate, challenge, joke, or tell a story.</p></div></div><div class="anti-pattern"><span>×</span><div><b>Anti-pattern: interview script</b><p>The contract rejects a permanent questioner / explainer split.</p></div></div></div></div></section>
+
+      <section id="contract" class="contract-section section-pad"><div class="section-heading"><div><p class="eyebrow">INVOCATION CONTRACT</p><h2>Guardrails that keep it honest</h2></div><span class="version">CONTRACT V0.1.0</span></div><div class="contract-grid"><div class="contract-card"><div class="contract-icon">⌘</div><h3>Identity stays stable</h3><p>Canonical identity is protected from episodic jokes and new-story drift.</p><span class="contract-tag">IdentitySKG → protected</span></div><div class="contract-card"><div class="contract-icon">◌</div><h3>Behavior stays flexible</h3><p>Traits modulate generation without collapsing either brother into a role.</p><span class="contract-tag">Tendencies ≠ rules</span></div><div class="contract-card"><div class="contract-icon">✓</div><h3>Every turn is verifiable</h3><p>Grounding, source boundaries, symmetry, and humor are checked before delivery.</p><span class="contract-tag">7 verifier checks</span></div></div><div class="contract-footer"><div><span class="footer-kicker">PINNED KNOWLEDGE SETS</span><span class="dataset">Phil SKG</span><span class="dataset">Jim SKG</span><span class="dataset">Relationship SKG</span><span class="dataset">Episode SKG</span></div><button class="button dark" id="copyPrompt">Copy invocation brief <span>⧉</span></button></div></section>
+    </main>
+    <footer><span>Dandy Persona Studio</span><span>Built as a local, inspectable reference implementation.</span></footer>
+  </div>
+  <div class="toast" id="toast">Invocation brief copied to clipboard.</div>
+  <script src="app.js"></script>
+</body>
+</html>

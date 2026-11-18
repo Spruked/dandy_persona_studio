@@ -1,0 +1,1 @@
+{"name":"dandy-persona-studio","private":true,"type":"module","scripts":{"test":"node tests/runtime.test.js"}}
